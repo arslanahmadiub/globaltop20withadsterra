@@ -32,10 +32,10 @@ const AboutUs = () => {
 
       <style>{`
 #aboutus {
-  min-height: calc(100vh - 149px - 64px - 250px );
+  min-height: calc(100vh - 149px - 64px );
 }
 #aboutusdark {
-  min-height: calc(100vh - 149px - 64px - 250px  );
+  min-height: calc(100vh - 149px - 64px  );
 }
 `}</style>
 

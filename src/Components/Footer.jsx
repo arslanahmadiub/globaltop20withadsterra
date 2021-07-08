@@ -11,10 +11,10 @@ const Footer = () => {
   let history = useHistory();
 
   let handelAboutUs = () => {
-    history.push("/");
+    history.push("/about");
   };
   let handeHomePage = () => {
-    history.push("/home");
+    history.push("/");
   };
 
   let handelPrivacyPolicy = () => {

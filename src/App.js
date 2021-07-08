@@ -25,10 +25,10 @@ const App = () => {
     <>
       <Topbar />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/about">
           <AboutUs />
         </Route>
-        <Route exact path="/home">
+        <Route exact path="/">
           <Main />
         </Route>
         {/* <Route exact path="/charity">

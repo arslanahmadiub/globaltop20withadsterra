@@ -149,12 +149,12 @@ const Topbar = () => {
 
   let handeHomePage = () => {
     setShowMenu(false);
-    history.push("/home");
+    history.push("/");
   };
   let handelAboutUs = () => {
     setShowMenu(false);
 
-    history.push("/");
+    history.push("/about");
   };
 
   let handelCharity = () => {
