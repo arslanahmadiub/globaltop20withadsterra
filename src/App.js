@@ -1,0 +1,56 @@
+import React, { useEffect } from "react";
+import "./App.css";
+import Topbar from "./Components/Topbar";
+import Main from "./Components/Main";
+import { Route, Switch } from "react-router-dom";
+import AboutUs from "./Components/AboutUs";
+import Footer from "./Components/Footer";
+import Charity from "./Components/Charity";
+import Privacy from "./Components/Privacy";
+import SignIn from "./Components/SignIn";
+import Signup from "./Components/Signup";
+import ForgotPassword from "./Components/ForgotPassword";
+import { useClearCache } from "react-clear-cache";
+
+const App = () => {
+  const { isLatestVersion, emptyCacheStorage } = useClearCache();
+
+  useEffect(() => {
+    if (!isLatestVersion) {
+      emptyCacheStorage();
+    }
+  }, []);
+
+  return (
+    <>
+      <Topbar />
+      <Switch>
+        <Route exact path="/">
+          <AboutUs />
+        </Route>
+        <Route exact path="/home">
+          <Main />
+        </Route>
+        {/* <Route exact path="/charity">
+          <Charity />
+        </Route> */}
+        <Route exact path="/privacy">
+          <Privacy />
+        </Route>
+        <Route exact path="/signin">
+          <SignIn />
+        </Route>
+        <Route exact path="/signup">
+          <Signup />
+        </Route>
+        <Route exact path="/forgot">
+          <ForgotPassword />
+        </Route>
+      </Switch>
+
+      <Footer />
+    </>
+  );
+};
+
+export default App;
