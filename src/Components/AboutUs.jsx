@@ -18,7 +18,7 @@ const AboutUs = () => {
   }, []);
 
   let handelHome = () => {
-    history.push("/home");
+    history.push("/");
   };
 
   return (

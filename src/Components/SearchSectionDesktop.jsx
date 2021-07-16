@@ -97,8 +97,6 @@ const SearchSectionDesktop = () => {
   const [calander, setCalander] = useState(null);
   const [showCalander, setShowCalander] = useState(false);
 
-  const top20Data = useSelector((state) => state.globalData.top20Videos);
-
   let getUserLocationData = async () => {
     try {
       setLoadBackdrop(true);
@@ -159,6 +157,8 @@ const SearchSectionDesktop = () => {
         getUserLocationData();
       }
     } catch (error) {
+      setLoadBackdrop(false);
+
       console.log(error);
     }
   };
@@ -211,6 +211,7 @@ const SearchSectionDesktop = () => {
         setTimeout(() => {
           dispatch(getGlobalTrending(false));
         }, 5000);
+        setLoadBackdrop(false);
       }
       // if (reload) {
       //   window.location.reload();
@@ -218,6 +219,7 @@ const SearchSectionDesktop = () => {
     } catch (error) {
       setLoadBackdrop(false);
     }
+    setLoadBackdrop(false);
   };
 
   useEffect(() => {

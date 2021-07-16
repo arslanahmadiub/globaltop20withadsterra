@@ -11,7 +11,7 @@ const Footer = () => {
   let history = useHistory();
 
   let handelAboutUs = () => {
-    history.push("/about");
+    history.push("/guide");
   };
   let handeHomePage = () => {
     history.push("/");

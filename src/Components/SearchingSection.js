@@ -182,6 +182,8 @@ const SearchingSection = () => {
         getUserLocationData();
       }
     } catch (error) {
+      setLoadBackdrop(false);
+
       console.log(error);
     }
   };

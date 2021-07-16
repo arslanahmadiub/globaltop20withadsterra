@@ -154,7 +154,7 @@ const Topbar = () => {
   let handelAboutUs = () => {
     setShowMenu(false);
 
-    history.push("/about");
+    history.push("/guide");
   };
 
   let handelCharity = () => {
