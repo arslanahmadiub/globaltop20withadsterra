@@ -195,7 +195,11 @@ const SearchSectionDesktop = () => {
         let top = result.Data.top20.Data;
         let hot = result.Data.hot20.Data;
         top.forEach(function (element, index) {
-          element.hotData = hot[index];
+          if (hot.length > 0) {
+            element.hotData = hot[index];
+          } else {
+            element.hotData = {};
+          }
         });
         dispatch(top20NewDataAction(top));
         dispatch(top20DataAction(result.Data.top20.Data));

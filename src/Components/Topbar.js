@@ -272,7 +272,7 @@ const Topbar = () => {
               className="topBarMobile"
               onClick={handeHomePage}
             >
-              GlobalTop20
+              GlobalHot20
             </Typography>
             {/* <Typography className="topBeta">Beta 3.0</Typography> */}
             <div
@@ -405,7 +405,7 @@ display:none;
               style={{ cursor: "pointer" }}
               onClick={handeHomePage}
             >
-              GlobalTop20
+              GlobalHot20
             </Typography>
             {/* <p style={{ fontSize: "10px", display: "flex", marginLeft: "5px" }}>
               Beta

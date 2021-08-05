@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Hidden } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
+import Fab from "@material-ui/core/Fab";
 
 import { Typography } from "@material-ui/core";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -13,14 +14,21 @@ const VideoViewInfoDesktop = (props) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const [toolTipOpen, setToolTipOpen] = useState(false);
+  const [toolTipOpenChannelTitle, setToolTipOpenChannelTitle] = useState(false);
   const colorSelector = useSelector((state) => state.globalData.colorState);
 
   const handleCloseTooltip = () => {
     setToolTipOpen(false);
   };
+  const handleCloseTooltipChannelTitle = () => {
+    setToolTipOpenChannelTitle(false);
+  };
 
   const handleOpenTooltip = () => {
     setToolTipOpen(true);
+  };
+  const handleOpenTooltipChannelTitle = () => {
+    setToolTipOpenChannelTitle(true);
   };
 
   let {
@@ -31,6 +39,7 @@ const VideoViewInfoDesktop = (props) => {
     video_viewCount,
     view_count_per_24hour,
     video_thumbnails,
+    views_by_time,
   } = props.data;
   const [dynamicVideo, setDynamicVideo] = useState("");
 
@@ -63,7 +72,7 @@ const VideoViewInfoDesktop = (props) => {
       dispatch(componentHeight(height));
     }
   }, [height]);
-
+  let viewsOneHour = <b>Views in 1 Hour:</b>;
   return (
     <Hidden only={["xs", "sm"]}>
       <React.Fragment>
@@ -93,36 +102,7 @@ const VideoViewInfoDesktop = (props) => {
               colorSelector ? "videoviewdesktopDark" : "videoviewdesktop"
             }
           >
-            <Grid item xs={5}>
-              <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-                #{props.top}
-              </p>
-
-              <p className="videoTagsSimple"></p>
-
-              <p className="videoTagsSimple">Views in 24 Hours</p>
-              <p className="videoTags">{view_count_per_24hour}</p>
-              <p className="videoTagsSimple"></p>
-
-              <Tooltip
-                arrow
-                open={toolTipOpen}
-                onClose={handleCloseTooltip}
-                onOpen={handleOpenTooltip}
-                title={video_title}
-              >
-                <Typography noWrap>{video_title}</Typography>
-              </Tooltip>
-
-              <p className="videoTags">{video_channelTitle}</p>
-
-              <p className="videoTagsSimple">Days Old</p>
-              <p className="videoTags">{video_publishedAt}</p>
-
-              <p className="videoTagsSimple">Total Views</p>
-              <p className="videoTags">{video_viewCount}</p>
-            </Grid>
-            <Grid item xs={7}>
+            <Grid item xs={12} style={{ position: "relative" }}>
               <div
                 className="frameContainer"
                 onClick={() => handelClick(video_id)}
@@ -143,6 +123,76 @@ const VideoViewInfoDesktop = (props) => {
                   }}
                 />
               </div>
+              <Tooltip
+                title="Add"
+                aria-label="add"
+                style={{
+                  position: "absolute",
+                  top: "5px",
+                  left: "15px",
+                  width: "40px",
+                  height: "40px",
+                  background: colorSelector ? "#424242" : "#3F51B5",
+                }}
+              >
+                <Fab color="primary">
+                  <h3>#{props.top}</h3>
+                </Fab>
+              </Tooltip>
+            </Grid>
+
+            <Grid item xs={12}>
+              {/* <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+                #{props.top}
+              </p> */}
+              <Grid container spacing={1}>
+                <Grid item xs={12} style={{ marginTop: "15px" }}>
+                  <Tooltip
+                    arrow
+                    open={toolTipOpen}
+                    onClose={handleCloseTooltip}
+                    onOpen={handleOpenTooltip}
+                    title={video_title}
+                  >
+                    <Typography noWrap>{video_title}</Typography>
+                  </Tooltip>
+                </Grid>
+
+                <Grid item xs={6}>
+                  <Tooltip
+                    arrow
+                    open={toolTipOpenChannelTitle}
+                    onClose={handleCloseTooltipChannelTitle}
+                    onOpen={handleOpenTooltipChannelTitle}
+                    title={video_channelTitle}
+                  >
+                    <Typography noWrap>
+                      <b>Channel:</b> {video_channelTitle}
+                    </Typography>
+                  </Tooltip>
+                </Grid>
+                <Grid item xs={6}>
+                  {views_by_time ? (
+                    <Typography noWrap>
+                      <b>Avg views per hour:</b> {views_by_time}
+                    </Typography>
+                  ) : (
+                    <Typography noWrap>
+                      <b>Views in 24 Hours:</b> {view_count_per_24hour}
+                    </Typography>
+                  )}
+                </Grid>
+                <Grid item xs={6}>
+                  <p>
+                    <b>Days Old:</b> {video_publishedAt}
+                  </p>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography noWrap>
+                    <b>Total Views:</b> {video_viewCount}
+                  </Typography>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

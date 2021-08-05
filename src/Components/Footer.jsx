@@ -46,7 +46,7 @@ const Footer = () => {
               style={{ color: "white", cursor: "pointer" }}
               onClick={handeHomePage}
             >
-              GlobalTop20
+              GlobalHot20
             </h2>
           </Grid>
           <Grid
@@ -119,7 +119,7 @@ const Footer = () => {
                 }}
               >
                 <h4 style={{ color: "white", marginTop: "15px" }}>
-                  Copyright @ 2021 GlobalTop20
+                  Copyright @ 2021 GlobalHot20
                 </h4>
               </Grid>
             </Grid>
@@ -154,23 +154,7 @@ const Footer = () => {
         }
 
 `}</style>
-        <Grid
-          container
-          // className={
-          //   historyObject === "/about"
-          //     ? "aboutPage"
-          //     : historyObject === "/charity"
-          //     ? "selectivePage"
-          //     : historyObject === "/signin"
-          //     ? "selectivePage"
-          //     : historyObject === "/signup"
-          //     ? "selectivePage"
-          //     : historyObject === "/privacy"
-          //     ? "aboutPage"
-          //     : "allPages"
-          // }
-          className="aboutPageCustom"
-        >
+        <Grid container className="aboutPageCustom">
           <Grid
             item
             xs={12}
@@ -186,7 +170,7 @@ const Footer = () => {
               style={{ color: "white", cursor: "pointer" }}
               onClick={handeHomePage}
             >
-              GlobalTop20
+              GlobalHot20
             </h2>
           </Grid>
           <Grid
@@ -249,7 +233,7 @@ const Footer = () => {
                 }}
               >
                 <h4 style={{ color: "white", marginTop: "15px" }}>
-                  Copyright @ 2021 GlobalTop20
+                  Copyright @ 2021 GlobalHot20
                 </h4>
               </Grid>
             </Grid>

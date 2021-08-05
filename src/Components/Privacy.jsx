@@ -57,7 +57,7 @@ const Privacy = () => {
         <li>
           <p>
             <strong>Company</strong> (referred to as either "the Company", "We",
-            "Us" or "Our" in this Agreement) refers to GlobalTop20, Corporate
+            "Us" or "Our" in this Agreement) refers to GlobalHot20, Corporate
             Filing Services Ltd, Harbour Center, PO Box 613, Grand Cayman,
             KY-1107, Cayman Islands.
           </p>
@@ -172,13 +172,13 @@ const Privacy = () => {
         </li>
         <li>
           <p>
-            <strong>Website</strong> refers to GlobalTop20, accessible from{" "}
+            <strong>Website</strong> refers to GlobalHot20, accessible from{" "}
             <a
-              href="http://www.globaltop20.com"
+              href="http://www.GlobalHot20.com"
               rel="external nofollow noopener"
               target="_blank"
             >
-              http://www.globaltop20.com
+              http://www.GlobalHot20.com
             </a>
           </p>
         </li>
@@ -1222,7 +1222,7 @@ const Privacy = () => {
         California resident, You can contact Us:
       </p>
       <ul>
-        <li>By email: privacy@globaltop20.com</li>
+        <li>By email: privacy@GlobalHot20.com</li>
       </ul>
       <p>
         Only You, or a person registered with the California Secretary of State
@@ -1421,7 +1421,7 @@ const Privacy = () => {
         If you have any questions about this Privacy Policy, You can contact us:
       </p>
       <ul>
-        <li>By email: privacy@globaltop20.com</li>
+        <li>By email: privacy@GlobalHot20.com</li>
       </ul>
     </div>
   );

@@ -21,6 +21,7 @@ const VideoViewInfo = (props) => {
     video_viewCount,
     view_count_per_24hour,
     video_thumbnails,
+    views_by_time,
     id,
   } = props.data;
   const [dynamicVideo, setDynamicVideo] = useState("");
@@ -145,9 +146,11 @@ const VideoViewInfo = (props) => {
                 color: colorSelector ? "white" : "black",
               }}
             >
-              <Grid item xs={3}>
-                <h6>Views in 24 Hours</h6>
-                <h6>{view_count_per_24hour}</h6>
+              <Grid item xs={4}>
+                <h6>
+                  {views_by_time ? "Avg views per hour" : "Views in 24 Hours"}
+                </h6>
+                <h6>{views_by_time ? views_by_time : view_count_per_24hour}</h6>
               </Grid>
               <Grid item xs={3}>
                 <h6>Channel </h6>
@@ -158,7 +161,7 @@ const VideoViewInfo = (props) => {
                 <h6>{video_publishedAt}</h6>
               </Grid>
 
-              <Grid item xs={3}>
+              <Grid item xs={2}>
                 <h6>Views </h6>
                 <h6>{video_viewCount}</h6>
               </Grid>
@@ -171,7 +174,7 @@ const VideoViewInfo = (props) => {
           style={{
             position: "absolute",
             top: "5px",
-            right: "15px",
+            left: "15px",
             width: "40px",
             height: "40px",
             background: colorSelector ? "#424242" : "#3F51B5",
