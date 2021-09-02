@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import asyncComponent from "./AsyncComponent";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import CookieConsent from "react-cookie-consent";
 import { useClearCache } from "react-clear-cache";
+import ReactGA from "react-ga";
 
+ReactGA.initialize("UA-203301302-2");
 const App = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
+
   const Topbar = asyncComponent(() => import("./Components/Topbar"));
   const Main = asyncComponent(() => import("./Components/Main"));
   const Footer = asyncComponent(() => import("./Components/Footer"));
@@ -67,4 +73,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withRouter(App);
